@@ -1,0 +1,17 @@
+.col-lg-6
+  .well.sidebar-nav
+    = form_tag :action => :index do
+      .form-group
+        = label_tag 'Enter formulas for comparing:'
+        .row
+          = text_field_tag :first_formula, params[:first_formula], { placeholder: 'Enter first formula' }
+          = text_field_tag :second_formula, params[:second_formula], { placeholder: 'Enter second formula' }
+        %br
+        = submit_tag 'Ввести', :class => 'btn btn-primary'
+= if @formulaes.present?
+  .col-lg-6
+    .well.sidebar-nav
+      .form-group
+        = label_tag @formulaes[0].result
+        = label_tag @formulaes[1].result
+

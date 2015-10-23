@@ -1,0 +1,76 @@
+!!! 5
+%html(lang="en")
+  %head
+    %meta(charset="utf-8")
+    %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %title= content_for?(:title) ? yield(:title) : "Kursach"
+    = csrf_meta_tags
+    = stylesheet_link_tag "application", :media => "all"
+    = favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144'
+    = favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114'
+    = favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72'
+    = favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png'
+    = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
+    = javascript_include_tag "application"
+    / Le HTML5 shim, for IE6-8 support of HTML elements
+    /[if lt IE 9]
+      = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"
+
+
+  %body
+    .navbar.navbar-default.navbar-static-top
+      .container
+        %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        %a.navbar-brand(href="#") Coors&acirc;ch &reg;
+        .navbar-collapse.collapse.navbar-responsive-collapse
+          %ul.nav.navbar-nav
+            %li
+              %a( type="button" data-toggle="modal" data-target=".bs-example-modal-lg" class="link" )
+                Про автора
+
+    .container
+      .row
+        .col-lg-9
+          = bootstrap_flash
+          = yield
+      %footer
+        %h3 &copy; Roman Yanush, 2015
+
+    .modal.fade.bs-example-modal-lg( tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" )
+      .modal-dialog.modal-lg
+        .modal-content
+          %img( class='close' src='/assets/exit.png' data-dismiss="modal" )
+          .modal-header
+            %h1 Roman Yanush
+            %h5 "Kek - ne chelovek." 1943
+          .modal-body
+            %p The student of Khmelnitsky National University on computer faculty of computer engineering. Studying English language, bases of object - orientation programming, trying to do best in Ruby programming on Rails framework.
+            .row
+              .col-md-4
+                %h4 Hobbies:
+                %ul
+                  %li Walking
+                  %li Coding
+                  %li Bass guitar
+                  %li CS:GO
+              .col-md-4
+                %h4 Pluses:
+                %ul
+                  %li Creative
+                  %li Communicable
+                  %li Insistent
+                  %li Open for new
+              .col-md-4
+                %h4 Minuses:
+                %ul
+                  %li Hard to concentrate
+                  %li Low English
+                  %li Don't like theory
+                  %li Don't listen a team
+          .modal-footer
+            %h3 &copy 2015
+
