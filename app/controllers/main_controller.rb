@@ -3,7 +3,7 @@ require 'fileutils'
 class MainController < ApplicationController
   
   def index
-    unless params[:first_formula].nil? && params[:second_formula].nil? && params[:file_name].nil?
+    unless params[:first_formula].to_s.length == 0 || params[:second_formula].nil?.to_s.length == 0
       if File.file?('params-folder/' + params[:file_name] + '.txt')
         first_params = nil
         second_params = nil
@@ -12,25 +12,25 @@ class MainController < ApplicationController
           if index == 0 then first_params = line.split else second_params = line.split end
           index += 1
         end
-        puts first_params.join(' ') + second_params.join(' ')
-        @formulas = [Formula.new(params[:first_formula], first_params), Formula.new(params[:second_formula], second_params)]
       end
+      @formulas = [Formula.new(params[:first_formula], first_params), Formula.new(params[:second_formula], second_params)]
+      @decision = @formulas[0].result == @formulas[1].result
     end
+    flash[:warning] = 'Enter formulas' if @formulas.nil? && request.post?
   end
 
   def create_params
-    message = 'Something goes wrong..'
-    unless params[:file_name].nil? || params[:first_params].nil? || params[:second_params].nil?
+    message = { :error => 'Something goes wrong..' }
+    unless params[:file_name].length == 0
       FileUtils.mkdir_p('params-folder') unless File.directory?('params-folder')
       File.open('params-folder/' + params[:file_name] + '.txt', 'w+') do |file|
         file.puts(params[:first_params])
         file.puts(params[:second_params])
       end
-      message = 'Succesfully created'
+      message = { :notice => 'Succesfully created' }
     end
-    redirect_to :back, notice: message
+    flash[message.keys[0]] = message.values[0]
+    redirect_to :back
   end
-
-
 
 end

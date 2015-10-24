@@ -102,3 +102,58 @@
 .formulas, .error{
   min-height: 45vh;
 }
+
+.results .expression{
+  background-color: #275B87;
+  border-radius: 15px 50px;
+  padding: 5px;
+}
+
+.results .result-container{
+  background-color: #2387DE;
+  border-radius: 15px 40px;
+}
+
+.results .form-group h1{
+  margin-top: 0;
+}
+
+.results .form-group label{
+  margin-top: 5px;
+}
+
+.results .variables{
+  color: #FFEBD4;
+  font-size: 16px;
+  margin:5px 10px 10px 10px;
+}
+
+.results .variables::after {
+  content: ';';
+}
+
+.results .variables:last-of-type:after {
+  content: '.';
+}
+
+.result-calc{
+  border-radius: 15px 75px;
+  background-color: #63B7FF;
+}
+
+.decision{
+  text-align: center;
+  color: #FFEBD4;
+  background-color: #275B87;
+  border: 2px solid #000;
+  padding: 10px;
+  border-radius: 75px;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.results {
+  background-color: #4AA4FF;
+  border-color: #000;
+  border-radius: 15px;
+}
