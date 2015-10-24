@@ -9,7 +9,7 @@ module Polish
   def form_polish_view(view)
     stack = Array.new
     result = Array.new
-
+    puts view
     view.each do |symbol|
       case symbol
         when '(' then stack.unshift symbol
@@ -51,7 +51,7 @@ module Polish
       end
     end
 
-    stack[0].to_s
+    stack[0].round(3).to_s
   end
 
   def calculate(view)
