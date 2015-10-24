@@ -16,7 +16,19 @@
 - unless @formulas.nil?
   .col-lg-6
     .well.sidebar-nav.results
-      .form-group
-        = label_tag @formulas[0].view + ' = ' + @formulas[0].result
-        %br
-        = label_tag @formulas[1].view + ' = ' + @formulas[1].result
+      .form-group.expression
+        - @formulas[0].variables.each_pair do |key, value|
+          = label_tag key + ': ' + value, nil, class: 'variables'
+        .form-group.result-container
+          = label_tag @formulas[0].view
+          %h1.result-calc
+            = @formulas[0].result
+      .form-group.expression
+        - @formulas[1].variables.each_pair do |key, value|
+          = label_tag key + ': ' + value, nil, class: 'variables'
+        .form-group.result-container
+          = label_tag @formulas[1].view
+          %h1.result-calc
+            = @formulas[1].result
+      %h1.decision
+        = @decision

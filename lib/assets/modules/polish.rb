@@ -9,7 +9,6 @@ module Polish
   def form_polish_view(view)
     stack = Array.new
     result = Array.new
-    puts view
     view.each do |symbol|
       case symbol
         when '(' then stack.unshift symbol
