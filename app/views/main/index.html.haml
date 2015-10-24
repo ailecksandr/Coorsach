@@ -1,17 +1,22 @@
 .col-lg-6
-  .well.sidebar-nav
+  .well.sidebar-nav.formulas
     = form_tag :action => :index do
       .form-group
-        = label_tag 'Enter formulas for comparing:'
+        = label_tag 'Formulas for comparing:'
         .row
-          = text_field_tag :first_formula, params[:first_formula], { placeholder: 'Enter first formula' }
-          = text_field_tag :second_formula, params[:second_formula], { placeholder: 'Enter second formula' }
-        %br
-        = submit_tag 'Ввести', :class => 'btn btn-primary'
-= if @formulaes.present?
-  .col-lg-6
-    .well.sidebar-nav
+          = text_field_tag :first_formula, params[:first_formula], { placeholder: 'Enter first formula', class: 'form-control' }
+          = text_field_tag :second_formula, params[:second_formula], { placeholder: 'Enter second formula', class: 'form-control' }
       .form-group
-        = label_tag @formulaes[0].result
-        = label_tag @formulaes[1].result
+        = label_tag 'Filename:', nil, class: 'control-label'
+        = text_field_tag :file_name, params[:file_name], { placeholder: 'Enter filename', class: 'form-control' }
+      .modal-footer
+        %br
+        = submit_tag 'Accept', :class => 'btn btn-primary'
 
+- unless @formulas.nil?
+  .col-lg-6
+    .well.sidebar-nav.results
+      .form-group
+        = label_tag @formulas[0].view + ' = ' + @formulas[0].result
+        %br
+        = label_tag @formulas[1].view + ' = ' + @formulas[1].result

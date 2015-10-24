@@ -16,4 +16,4 @@
 !/log/.keep
 /tmp
 
-kek.rb
+lib/assets/modules/kek.rb

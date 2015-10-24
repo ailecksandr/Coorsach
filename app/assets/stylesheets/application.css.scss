@@ -13,6 +13,14 @@
  *= require bootstrap_and_overrides
  */
 
+.main-content{
+  min-height:75vh;
+}
+
+.main-footer h3{
+  text-align: right;
+}
+
 .row{
   margin: 20px auto;
 }
@@ -32,7 +40,14 @@
 
 .modal-content{
   padding: 40px;
+}
+
+.about{
   min-height: 90vh;
+}
+
+.create-params{
+  min-height: 70vh;
 }
 
 .content{
@@ -48,16 +63,14 @@
   font-style: italic;
 }
 
-.modal-header h5{
-  font-size: 1em;
-  text-indent: 25px;
-}
-
-.modal-body{
+.about-body{
   min-height: 45vh;
   font-size: 1.2em;
   text-align: justify;
-  text-indent: 25px;
+}
+
+.create-params-body{
+  min-height: 45vh;
 }
 
 .modal-body .list-container{
@@ -67,4 +80,25 @@
 .modal-body h4{
   font-weight: bold;
   text-align: center;
+}
+
+.paragraph{
+  text-indent: 25px;
+  font-size: 1em;
+}
+
+.error{
+  min-height: 30vh;
+  text-align: center;
+  width:100%;
+  display: table;
+}
+
+.error span{
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.formulas, .error{
+  min-height: 45vh;
 }
