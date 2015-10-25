@@ -1,7 +1,8 @@
 require 'polish'
+require 'float_number'
 
 class Formula
-  include Polish
+  include Polish, FloatNumber
 
   def initialize(view, params = nil)
     @view = form_normal_view(view)

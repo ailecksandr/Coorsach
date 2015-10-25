@@ -103,10 +103,11 @@
   min-height: 45vh;
 }
 
-.results .expression{
+.results .expression {
   background-color: #275B87;
   border-radius: 15px 50px;
   padding: 5px;
+  border: 1px solid #333;
 }
 
 .results .result-container{
@@ -141,19 +142,16 @@
   background-color: #63B7FF;
 }
 
-.decision{
-  text-align: center;
-  color: #FFEBD4;
-  background-color: #275B87;
-  border: 2px solid #000;
-  padding: 10px;
-  border-radius: 75px;
-  width: 50%;
-  margin: 0 auto;
+.results {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
 }
 
-.results {
-  background-color: #4AA4FF;
-  border-color: #000;
-  border-radius: 15px;
+.alert {
+  position: fixed;
+  top: 10vh;
+  right: 5vh;
+  z-index: 1000;
+  width: 30vw;
 }
