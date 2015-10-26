@@ -14,7 +14,7 @@ class Formula
     begin
       calculate(with_placed_params)
     rescue
-      return 'Error'
+      return I18n.t :calculate_error
     end
   end
 
@@ -29,7 +29,7 @@ class Formula
 
   def with_placed_params
     temp = @view.clone
-    temp_params = (@params.nil?)? nil : @params.clone
+    temp_params = (@params.nil?)? [] : @params.clone
       temp.map! do |symbol|
         change = symbol
         unless ('+-()*^/'.include? symbol) || ( is_number?(symbol) )
@@ -51,10 +51,6 @@ class Formula
                       '/' => ' / ', '*' => ' * ', '^' => ' ^ ',
                       '(' => ' ( ', ')' => ' ) ')
     @view.split
-  end
-
-  def is_number? string
-    true if Float(string) rescue false
   end
 
 end

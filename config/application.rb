@@ -23,6 +23,15 @@ module Kursach
     # Autoload lib/ folder including all subdirectories
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
 
+    # tell the I18n library where to find your translations
+    I18n.load_path += Dir[Rails.root.join('lib', 'locale', '*.{rb,yml}')]
+
+    I18n.enforce_available_locales = false
+    I18n.available_locales = [:ukr, :en, :ru]
+
+    # set default locale to something other than :en
+    I18n.default_locale = :ukr
+
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
   end

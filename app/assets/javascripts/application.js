@@ -120,12 +120,19 @@ function hide_flash(){
     }, 2000);
 }
 
+function preloading(){
+        setTimeout(function(){
+            $('#preload').hide();
+        }, 1500);
+}
+
 var main = function(){
     var bg_color = generate_body_color();
     var text_color = form_text_color(bg_color);
     $('body').css('background-color', bg_color);
     $('footer h3').css('color', text_color);
 
+    preloading();
     var hide = hide_flash();
 
     $('.alert').mouseover(function(){

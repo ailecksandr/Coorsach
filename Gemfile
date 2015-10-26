@@ -28,6 +28,14 @@ gem 'haml-rails'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'therubyracer'
 gem 'less-rails'
+# New wave Internationalization support for Ruby.
+gem 'i18n'
+# Makes running your Rails app easier.
+gem 'rails_12factor', group: :production
+# A gem which helps you detect the users preferred language, as sent by the "Accept-Language" HTTP header.
+gem 'http_accept_language'
+# Flag Icon Css for use with Rails 3.1+ asset pipeline.
+gem 'flag_icon_css_rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -42,10 +50,11 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry-byebug'
   # Use sqlite3 as the database for Active Record
-  #gem 'sqlite3'
+  gem 'sqlite3'
 end
 
 group :test, :production do
+  # Pg is the Ruby interface to the PostgreSQL
   gem 'pg'
 end
 
@@ -59,6 +68,4 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
-gem 'rails_12factor', group: :production
 

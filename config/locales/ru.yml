@@ -1,0 +1,65 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+ru:
+  calculate_title: "Формулы для сравнения:"
+  calculate_first_formula: Введите первую формулу
+  calculate_second_formula: Введите вторую формулу
+  calculate_filename_title: "Название файла:"
+  calculate_filename: Введите название файла
+  calculate_accept: Принять
+  calculate_error: Ошибка
+
+  file_not_found: "Ошибка 404: Файл не найден"
+  formulas_not_found: Введите формулы
+  fields_not_filled: Заполните все поля
+  wrong_arguments: Неправильно заданые аргументы
+  succesfully_created: Успешно создано
+
+  file_params_nav: Создать файл параметров
+  about_nav: Об авторе
+
+  author: Роман Януш
+  author_epigraph: "\"Как на льве.\" 6 сентября, 2015 года"
+  author_paragraphs: Студент факультета программной инженерии Хмельницкого Национального Университета. Изучаю английский язык, основы объектно-ориентированого программирования, развиваюсь в Ruby разработке под Rails фреймворк.
+  hobbies: "Хобби:"
+  hobbies_1: Прогулки
+  hobbies_2: Коддинг
+  hobbies_3: Игра на бас-гитаре
+  pluses: "Плюсы:"
+  pluses_1: Креативный
+  pluses_2: Дружелюбный
+  pluses_3: Настойчивый
+  pluses_4: Открытый для новизны
+  minuses: "Минусы:"
+  minuses_1: Рассеяный
+  minuses_2: Плохой английский
+  minuses_3: Не люблю теорию
+  minuses_4: Не слушаю команду
+
+  file_params_title: Новый файл параметров
+  file_params_filename_title: "Название файла:"
+  file_params_filename: Введите название файла
+  file_params_first_params_title: "Первый список параметров:"
+  file_params_first_params: Введите список параметров для первой формулы
+  file_params_second_params_title: "Второй список параметров:"
+  file_params_second_params: Введите список параметров для второй формулы
+  file_params_create: Создать

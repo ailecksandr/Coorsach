@@ -1,13 +1,18 @@
 Rails.application.routes.draw do
-  root 'main#index'
-  post '/' => 'main#index'
-  post '/index' => 'main#index'
-  post '/create_params' => 'main#create_params'
+
+  scope '(:locale)', :locale => /en|ru|ukr/ do
+    post '/comparator' => 'main#comparator'
+    post '/create_params' => 'main#create_params'
+    post '/' => 'main#comparator'
+    root 'main#comparator'
+    get '/comparator' => 'main#comparator'
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  # root 'welcome#comparator'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

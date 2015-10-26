@@ -20,4 +20,47 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  calculate_title: "Formulas for comparing:"
+  calculate_first_formula: Enter first formula
+  calculate_second_formula: Enter second formula
+  calculate_filename_title: "Filename:"
+  calculate_filename: Enter filename
+  calculate_accept: Accept
+  calculate_error: Error
+
+  file_not_found: "Error 404: File not found"
+  formulas_not_found: Enter formulas
+  fields_not_filled: Fill all fields
+  wrong_arguments: Wrong arguments
+  succesfully_created: Successfully created
+
+  file_params_nav: Create params file
+  about_nav: About
+
+  author: Roman Yanush
+  author_epigraph: "\"Like on lion.\" 6, September 2015"
+  author_paragraphs: The student of Khmelnitsky National University on computer faculty of program engineering. Studying English language, bases of object - orientation programming, trying to do best in Ruby programming on Rails framework.
+  hobbies: "Hobbies:"
+  hobbies_1: Walking
+  hobbies_2: Coding
+  hobbies_3: Play on bass-guitar
+  pluses: "Pluses:"
+  pluses_1: Creative
+  pluses_2: Communicable
+  pluses_3: Insistent
+  pluses_4: Open for new
+  minuses: "Minuses:"
+  minuses_1: Hard to concentrate
+  minuses_2: Low English
+  minuses_3: Don't like theory
+  minuses_4: Don't listen a team
+
+  file_params_title: New params file
+  file_params_filename_title: "Filename:"
+  file_params_filename: Enter filename
+  file_params_first_params_title: "First params:"
+  file_params_first_params: Enter first formula params
+  file_params_second_params_title: "Second params:"
+  file_params_second_params: Enter second formula params
+  file_params_create: Create
+
