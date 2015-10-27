@@ -49,7 +49,10 @@ module Polish
         else stack.unshift symbol.to_f
       end
     end
-
+    while stack.length > 1
+      temp = stack.shift
+      stack[0] += temp
+    end
     stack[0].round(3).to_s
   end
 
