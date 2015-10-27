@@ -1,5 +1,11 @@
 class ApplicationController < ActionController::Base
   include HttpAcceptLanguage::AutoLocale
+  rescue_from ActionController::RoutingError, :with => :not_found
+
+  def not_found
+    flash[:error] = t(:page_not_found)
+    redirect_to root_path
+  end
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.

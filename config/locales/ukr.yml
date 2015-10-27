@@ -29,6 +29,7 @@ ukr:
   calculate_error: Помилка
 
   file_not_found: "Помилка 404: Файл не знайдено"
+  page_not_found: "Помилка 404: Сторінку не знайдено"
   formulas_not_found: Введіть формули
   fields_not_filled: Заповніть усі поля
   wrong_arguments: Невірно задані аргументи

@@ -29,6 +29,7 @@ ru:
   calculate_error: Ошибка
 
   file_not_found: "Ошибка 404: Файл не найден"
+  page_not_found: "Ошибка 404: Страница не найдена"
   formulas_not_found: Введите формулы
   fields_not_filled: Заполните все поля
   wrong_arguments: Неправильно заданые аргументы

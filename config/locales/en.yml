@@ -29,6 +29,7 @@ en:
   calculate_error: Error
 
   file_not_found: "Error 404: File not found"
+  page_not_found: "Error 404: Page not found"
   formulas_not_found: Enter formulas
   fields_not_filled: Fill all fields
   wrong_arguments: Wrong arguments
