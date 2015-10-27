@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     post '/' => 'main#comparator'
     root 'main#comparator'
     get '/comparator' => 'main#comparator'
+    get '*path', :controller => :application, :action => :not_found
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
