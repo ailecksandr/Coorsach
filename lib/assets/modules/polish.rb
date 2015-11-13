@@ -14,6 +14,7 @@ module Polish
         when '(' then stack.unshift symbol
         when ')'
           result << stack.shift while stack[0] != '('
+          puts result
           stack.shift
         when '+', '-', '/', '*', '^'
           while !stack.empty?

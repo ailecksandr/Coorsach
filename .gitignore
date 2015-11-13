@@ -15,6 +15,7 @@
 /log/*
 !/log/.keep
 /tmp
+.idea
 
 lib/assets/modules/kek.rb
-params-folder
+/params-folder

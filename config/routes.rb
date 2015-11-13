@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   scope '(:locale)', :locale => /en|ru|ukr/ do
     post '/comparator' => 'main#comparator'
-    post '/create_params' => 'main#create_params'
+    post '/create_params' => 'main#create_params', :as => :create_params
+    post '/erase_params' => 'main#erase_params', :as => :erase_params
     post '/' => 'main#comparator'
     root 'main#comparator'
     get '/comparator' => 'main#comparator'

@@ -18,7 +18,7 @@ class Formula
   end
 
   def view
-   form_view
+    form_view
   end
 
   def variables
@@ -28,25 +28,34 @@ class Formula
   private
 
   def form_normal_view(view)
-    @view = view.gsub(/[+-\/*^()]/, '+' => ' +', '-' => ' -',
-                      '/' => ' / ', '*' => ' * ', '^' => ' ^ ',
-                      '(' => ' ( ', ')' => ' ) ')
-    @view.gsub('--', '- -').gsub('- +', '-').split
+    @view = view
+    replacements = [ ['+', ' + '], ['-', ' - '], ['/', ' / '], ['*', ' * '],
+                     ['^', ' ^ '], ['(', ' ( '], [')', ' ) '], ['.', '.'], [',',  ' / / '],
+                     ['-  - ',  '- -'], ['(  - ', '( -'], ['+  - ', '( -'], ['/  - ', '( -'],
+                     ['*  - ', '( -'], ['^  - ', '( -'] ]
+    replacements.each {|replacement| @view.gsub!(replacement[0], replacement[1])}
+    temp = @view.split
+    if temp[0] == '-'
+      temp.shift
+      temp[0] = '-' + temp[0]
+    end
+    temp
   end
 
   def form_variables_view
     used_variables = Hash.new
     temp_params = (@params.nil?)? [] : @params.clone
     @view.each do |symbol|
-      unless ('+-()*^/'.include? symbol) || ( is_number?(symbol) ) || used_variables.keys.include?(symbol[1..-1]) || used_variables.keys.include?(symbol)
+      unless ('+-()*^/'.include? symbol) || ( is_number?(symbol) ) ||
+          (used_variables.keys.include?(symbol[1..-1]) && symbol[0] == '-') || used_variables.keys.include?(symbol)
         if temp_params[0].nil?
-          if symbol[0] == '-' || symbol[0] == '+'
+          if symbol[0] == '-'
             used_variables[symbol[1..-1]] = '0'
           else
             used_variables[symbol] = '0'
           end
         else
-          if symbol[0] == '-' || symbol[0] == '+'
+          if symbol[0] == '-'
             used_variables[symbol[1..-1]] = temp_params.shift
           else
             used_variables[symbol] = temp_params.shift
@@ -61,19 +70,16 @@ class Formula
     used_variables = Hash.new
     temp_params = (@params.nil?)? [] : @params.clone
     @view.each do |symbol|
-      unless ('+-()*^/'.include? symbol) || ( is_number?(symbol) ) || used_variables.keys.include?(symbol[1..-1]) || used_variables.keys.include?(symbol)
+      unless ('+-()*^/'.include? symbol) || ( is_number?(symbol) ) ||
+          (used_variables.keys.include?(symbol[1..-1]) && symbol[0] == '-') || used_variables.keys.include?(symbol)
         if temp_params[0].nil?
           if symbol[0] == '-'
-            used_variables[symbol[1..-1]] = '-0'
-          elsif symbol[0] == '+'
-            used_variables[symbol[1..-1]] = '0'
+            used_variables[symbol[1..-1]] = '0.0'
           else
-            used_variables[symbol] = '0'
+            used_variables[symbol] = '0.0'
           end
         else
           if symbol[0] == '-'
-            used_variables[symbol[1..-1]] = (- temp_params.shift.to_f).to_s
-          elsif symbol[0] == '+'
             used_variables[symbol[1..-1]] = temp_params.shift
           else
             used_variables[symbol] = temp_params.shift
@@ -92,8 +98,8 @@ class Formula
       unless ('+-()*^/'.include? symbol) || ( is_number?(symbol) )
         if used_variables.keys.include? symbol
           change = used_variables[symbol]
-        elsif used_variables.keys.include? symbol[1..-1]
-          change = used_variables[symbol[1..-1]]
+        elsif used_variables.keys.include?(symbol[1..-1]) && symbol[0] == '-'
+          change = (-used_variables[symbol[1..-1]].to_f).to_s
         end
       end
       change
@@ -104,17 +110,18 @@ class Formula
   def form_view
     temp = @view.clone
     used_variables = select_used_params
-    temp= temp.map.with_index do |symbol, index|
+    temp= temp.map do |symbol|
       change = symbol
       unless ('+-()*^/'.include? symbol) || ( is_number?(symbol) )
         if used_variables.keys.include? symbol
           change = used_variables[symbol]
-        elsif used_variables.keys.include? symbol[1..-1]
-          change = (used_variables[symbol[1..-1]].to_f > 0 && index != 0)?  '+' + used_variables[symbol[1..-1]] : used_variables[symbol[1..-1]]
+        elsif used_variables.keys.include?(symbol[1..-1]) && symbol[0] == '-'
+          change = (used_variables[symbol[1..-1]].to_f > 0)? '-' + used_variables[symbol[1..-1]] : (-used_variables[symbol[1..-1]].to_f).to_s
         end
       end
       change
     end
+    puts temp.join(' ')
     temp.join(' ')
   end
 

@@ -51,6 +51,10 @@
   min-height: 70vh;
 }
 
+.erase-params{
+  min-height: 50vh;
+}
+
 .content{
   position: absolute;
   right: 0;
@@ -72,6 +76,10 @@
 
 .create-params-body{
   min-height: 45vh;
+}
+
+.erase-params-body{
+  min-height: 18vh;
 }
 
 .modal-body .list-container{
@@ -182,4 +190,22 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.9);
 }
+
+.modal-footer{
+  padding-bottom: 0;
+}
+
+footer a{
+  text-decoration: none !important;
+}
+
+#about_form .about .about-body{
+  width: 75%;
+  margin: 0 auto;
+}
+
+.about-body p{
+  text-indent: 25px;
+}
+
 

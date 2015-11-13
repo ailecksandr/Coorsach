@@ -1,0 +1,16 @@
+.modal.fade#eraseModal( tabindex="-1" aria-labelledby="exampleModalLabel" )
+  .modal-dialog
+    .modal-content.erase-params
+      .modal-header
+        %button( class="close" data-dismiss="modal" aria-label="Close" )
+          %span
+            &times;
+        %h4( class="modal-title" id="exampleModalLabel" )
+          = t(:erase_file_params_title)
+      = form_tag erase_params_path do
+        .modal-body.erase-params-body
+          .form-group
+            = label_tag t(:erase_file_params_filename_title), nil, class: 'control-label'
+            = text_field_tag :file_name, nil, { placeholder: t(:erase_file_params_filename), class: 'form-control' }
+        .modal-footer
+          = submit_tag t(:erase_file_params_create), :class => 'btn btn-primary'

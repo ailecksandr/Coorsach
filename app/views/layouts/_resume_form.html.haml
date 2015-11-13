@@ -1,0 +1,54 @@
+.modal.fade.bs-example-modal-lg( tabindex="-1" aria-labelledby="myLargeModalLabel" )
+  .modal-dialog.modal-lg
+    .modal-content.about
+      %button( class="close" data-dismiss="modal" aria-label="Close" )
+        %span
+          &times;
+      .modal-header
+        %h1
+          = t(:author)
+        %h5{ class: 'paragraph' }
+          = t(:author_epigraph)
+      .modal-body.about-body
+        %p
+          = t(:author_paragraphs)
+        .row
+          .col-md-4
+            %h4
+              = t(:hobbies)
+            %ul
+              %li
+                = t(:hobbies_1)
+              %li
+                = t(:hobbies_2)
+              %li
+                = t(:hobbies_3)
+              %li CS:GO
+          .col-md-4
+            %h4
+              = t(:pluses)
+            %ul
+              %li
+                = t(:pluses_1)
+              %li
+                = t(:pluses_2)
+              %li
+                = t(:pluses_3)
+              %li
+                = t(:pluses_4)
+          .col-md-4
+            %h4
+              = t(:minuses)
+            %ul
+              %li
+                = t(:minuses_1)
+              %li
+                = t(:minuses_2)
+              %li
+                = t(:minuses_3)
+              %li
+                = t(:minuses_4)
+      .modal-footer
+        %h3
+          &copy
+          = Time.now.year

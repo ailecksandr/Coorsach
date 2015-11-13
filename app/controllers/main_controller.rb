@@ -10,10 +10,10 @@ class MainController < ApplicationController
       flash.now[:warning] = t(:formulas_not_found) if @formulas.nil? && request.post?
     else
       if params[:file_name].to_s.length != 0
-        if File.exist?('params-folder/' + params[:file_name] + '.json')
+        if File.exist?("params-folder/#{params[:file_name]}.json")
           first_params = []
           second_params = []
-          json_temp = JSON.parse( File.read('params-folder/' + params[:file_name] + '.json') )
+          json_temp = JSON.parse( File.read("params-folder/#{params[:file_name]}.json") )
           json_temp.each_with_index do |formula, index|
             formula.each_value do |params|
               params.each do |param|
@@ -21,12 +21,12 @@ class MainController < ApplicationController
               end
             end
           end
-          @formulas = [Formula.new(params[:first_formula], first_params), Formula.new(params[:second_formula], second_params)]
+          @formulas = [Formula.new(params[:first_formula].clone, first_params), Formula.new(params[:second_formula].clone, second_params)]
         else
           flash.now[:error] = t(:file_not_found) if request.post?
         end
       else
-        @formulas = [Formula.new(params[:first_formula], nil), Formula.new(params[:second_formula], nil)]
+        @formulas = [Formula.new(params[:first_formula].clone), Formula.new(params[:second_formula].clone)]
       end
     end
   end
@@ -47,12 +47,24 @@ class MainController < ApplicationController
       first_params = params[:first_params].split.map{ |x| { param: x } }
       second_params = params[:second_params].split.map{ |x| { param: x } }
       temp_json = [first_params, second_params].map{ |x| { formula: x} }
-      File.open('params-folder/' + params[:file_name] + '.json', 'w+') do |file|
+      File.open("params-folder/#{params[:file_name]}.json", 'w+') do |file|
         file.write( JSON.pretty_generate(temp_json) );
       end
-      message = { :notice => t(:succesfully_created) }
+      message = { :notice => t(:successfully_created) }
     end
     flash[message.keys[0]] = message.values[0]
+    redirect_to :back
+  end
+
+  def erase_params
+    if params[:file_name].to_s.length == 0
+      flash[:warning] = t(:enter_filename)
+    elsif File.exist?("params-folder/#{params[:file_name]}.json")
+      File.delete("params-folder/#{params[:file_name]}.json")
+      flash[:notice] = t(:successfully_removed)
+    else
+      flash[:error] = t(:file_not_found)
+    end
     redirect_to :back
   end
 

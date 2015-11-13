@@ -1,0 +1,14 @@
+.modal.fade#about_form( tabindex="-1" aria-labelledby="exampleModalLabel" )
+  .modal-dialog.modal-lg
+    .modal-content.about
+      %button( class="close" data-dismiss="modal" aria-label="Close" )
+        %span
+          &times;
+      .modal-header
+        %h1= "#{t(:title)} \u2122"
+      .modal-body.about-body
+        %p= t(:about_program_1)
+        %p= t(:about_program_2)
+        %p= t(:about_program_3)
+        %p= t(:about_program_4)
+      .modal-footer

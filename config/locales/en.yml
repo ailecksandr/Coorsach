@@ -20,11 +20,13 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  title: Solver
+
   calculate_title: "Formulas for comparing:"
   calculate_first_formula: Enter first formula
   calculate_second_formula: Enter second formula
   calculate_filename_title: "Filename:"
-  calculate_filename: Enter filename
+  calculate_filename: Enter name of params file
   calculate_accept: Accept
   calculate_error: Error
 
@@ -32,19 +34,28 @@ en:
   page_not_found: "Error 404: Page not found"
   formulas_not_found: Enter formulas
   fields_not_filled: Fill all fields
+  enter_filename: Enter filename
   wrong_arguments: Wrong arguments
-  succesfully_created: Successfully created
+  successfully_created: Successfully created
+  successfully_removed: Successfully removed
 
-  file_params_nav: Create params file
-  about_nav: About
+  file_params_nav: Create
+  erase_file_params_nav: Remove
+  resume_nav: About author
+  about_nav: About program
 
-  author: Roman Yanush
-  author_epigraph: "\"Like on lion.\" 6, September 2015"
-  author_paragraphs: The student of Khmelnitsky National University on computer faculty of program engineering. Studying English language, bases of object - orientation programming, trying to do best in Ruby programming on Rails framework.
+  about_program_1: "That's demonstrative project that firstly was targeted to be a term project for my friend."
+  about_program_2: "This is the comparator for your formulas, that compare two formulas for equality. You may work with it like a default calculator or calculate formulas with parameters."
+  about_program_3: "Before using parameters you must create params `.json` file that may be created at the \"Create\". After that enter formulas and correct filename in corresponding fields. Parameters without value equals 0 by default."
+  about_program_4: "When you entered all data click \"Accept\". You'll receive a results with full map of current parameters in each formula or information about errors. Project supports internationalization."
+
+  author: Alexandr Orlov
+  author_epigraph: "\"Sorry, you're not a winner.\" 1, July 2004"
+  author_paragraphs: The student of Khmelnitsky Politechnical College National University "Lviv Polichenic" on department of software engineering. I'm studying English language, reading books about object - orientation programming and design patterns, interested in Ruby programming on Rails framework.
   hobbies: "Hobbies:"
   hobbies_1: Walking
   hobbies_2: Coding
-  hobbies_3: Play on bass-guitar
+  hobbies_3: Play on acoustic guitar
   pluses: "Pluses:"
   pluses_1: Creative
   pluses_2: Communicable
@@ -52,9 +63,9 @@ en:
   pluses_4: Open for new
   minuses: "Minuses:"
   minuses_1: Hard to concentrate
-  minuses_2: Low English
+  minuses_2: Conservative
   minuses_3: Don't like theory
-  minuses_4: Don't listen a team
+  minuses_4: Unpunctuality
 
   file_params_title: New params file
   file_params_filename_title: "Filename:"
@@ -64,4 +75,9 @@ en:
   file_params_second_params_title: "Second params:"
   file_params_second_params: Enter second formula params
   file_params_create: Create
+
+  erase_file_params_title: Remove params file
+  erase_file_params_filename_title: "Filename:"
+  erase_file_params_filename: Enter filename
+  erase_file_params_create: Remove
 

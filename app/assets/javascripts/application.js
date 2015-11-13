@@ -131,6 +131,7 @@ var main = function(){
     var text_color = form_text_color(bg_color);
     $('body').css('background-color', bg_color);
     $('footer h3').css('color', text_color);
+    $('footer a').css('color', text_color);
 
     var hide = hide_flash();
     preload();

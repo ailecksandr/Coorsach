@@ -4,7 +4,7 @@
     %meta(charset="utf-8")
     %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    %title= content_for?(:title) ? yield(:title) : 'Kursach'
+    %title= content_for?(:title) ? yield(:title) : t(:title)
     = csrf_meta_tags
     = stylesheet_link_tag 'application', :media => 'all'
     = favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144'
@@ -21,117 +21,23 @@
   %body
     .row#preload
       %img.center-block{src: '/assets/preloader.gif'}
-    .navbar.navbar-default.navbar-static-top
-      .container
-        %button.navbar-toggle(data-toggle="collapse" data-target=".navbar-responsive-collapse")
-          %span.icon-bar
-          %span.icon-bar
-          %span.icon-bar
-        =link_to "Coorsach \u2122", root_path, { class: 'navbar-brand' }
-        .navbar-collapse.collapse.navbar-responsive-collapse
-          %ul.nav.navbar-nav
-            %li
-              %a( data-toggle="modal" data-target="#exampleModal" class="link" )
-                = t(:file_params_nav)
-            %li
-              %a( type="button" data-toggle="modal" data-target=".bs-example-modal-lg" class="link" )
-                = t(:about_nav)
-          %ul.nav.navbar-nav.i18n
-            %li
-              %a{ href:'/en' }
-                %h3.flag-icon.flag-icon-us
-            %li
-              %a{ href:'/ru' }
-                %h3.flag-icon.flag-icon-ru
-            %li
-              %a{ href:'/ukr' }
-                %h3.flag-icon.flag-icon-ua
+
+    = render 'layouts/header'
 
     .container
       .row.main-content
         .col-lg-9
           = bootstrap_flash
           = yield
+          = render 'layouts/params_form'
+          = render 'layouts/erase_params_form'
+          = render 'layouts/resume_form'
+          = render 'layouts/about_form'
+
       %footer.main-footer
         %h3
-          &copy; Intelligent Wizards,
+          &copy;
+          = link_to 'Intelligent Wizards,', 'https://github.com/ailecksandr'
           = Time.now.year
 
-    .modal.fade.bs-example-modal-lg( tabindex="-1" aria-labelledby="myLargeModalLabel" )
-      .modal-dialog.modal-lg
-        .modal-content.about
-          %button( class="close" data-dismiss="modal" aria-label="Close" )
-            %span
-              &times;
-          .modal-header
-            %h1
-              = t(:author)
-            %h5{ class: 'paragraph' }
-              = t(:author_epigraph)
-          .modal-body.about-body
-            %p
-              = t(:author_paragraphs)
-            .row
-              .col-md-4
-                %h4
-                  = t(:hobbies)
-                %ul
-                  %li
-                    = t(:hobbies_1)
-                  %li
-                    = t(:hobbies_2)
-                  %li
-                    = t(:hobbies_3)
-                  %li CS:GO
-              .col-md-4
-                %h4
-                  = t(:pluses)
-                %ul
-                  %li
-                    = t(:pluses_1)
-                  %li
-                    = t(:pluses_2)
-                  %li
-                    = t(:pluses_3)
-                  %li
-                    = t(:pluses_4)
-              .col-md-4
-                %h4
-                  = t(:minuses)
-                %ul
-                  %li
-                    = t(:minuses_1)
-                  %li
-                    = t(:minuses_2)
-                  %li
-                    = t(:minuses_3)
-                  %li
-                    = t(:minuses_4)
-          .modal-footer
-            %h3
-              &copy
-              = Time.now.year
-
-    .modal.fade#exampleModal( tabindex="-1" aria-labelledby="exampleModalLabel" )
-      .modal-dialog
-        .modal-content.create-params
-          .modal-header
-            %button( class="close" data-dismiss="modal" aria-label="Close" )
-              %span
-                &times;
-            %h4( class="modal-title" id="exampleModalLabel" )
-              = t(:file_params_title)
-          = form_tag :controller => 'main', :action => :create_params do
-            .modal-body.create-params-body
-              .form-group
-                = label_tag t(:file_params_filename_title), nil, class: 'control-label'
-                = text_field_tag :file_name, nil, { placeholder: t(:file_params_filename), class: 'form-control' }
-              .form-group
-                = label_tag t(:file_params_first_params_title), nil, class: 'control-label'
-                = text_field_tag :first_params, nil, { placeholder: t(:file_params_first_params), class: 'form-control' }
-              .form-group
-                = label_tag t(:file_params_second_params_title), nil, class: 'control-label'
-                = text_field_tag :second_params, nil, { placeholder: t(:file_params_second_params), class: 'form-control' }
-            .modal-footer
-              = submit_tag t(:file_params_create), :class => 'btn btn-primary'
 

@@ -1,0 +1,31 @@
+.navbar.navbar-default.navbar-static-top
+  .container
+    %button.navbar-toggle(data-toggle="collapse" data-target=".navbar-responsive-collapse")
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    =link_to "#{t(:title)} \u2122", root_path, { class: 'navbar-brand' }
+    .navbar-collapse.collapse.navbar-responsive-collapse
+      %ul.nav.navbar-nav
+        %li
+          %a( data-toggle="modal" data-target="#exampleModal" class="link" )
+            = t(:file_params_nav)
+        %li
+          %a( data-toggle="modal" data-target="#eraseModal" class="link" )
+            = t(:erase_file_params_nav)
+        %li
+          %a( type="button" data-toggle="modal" data-target=".bs-example-modal-lg" class="link" )
+            = t(:resume_nav)
+        %li
+          %a( type="button" data-toggle="modal" data-target="#about_form" class="link" )
+            = t(:about_nav)
+      %ul.nav.navbar-nav.i18n
+        %li
+          %a{ href:'/en' }
+            %h3.flag-icon.flag-icon-us
+        %li
+          %a{ href:'/ru' }
+            %h3.flag-icon.flag-icon-ru
+        %li
+          %a{ href:'/ukr' }
+            %h3.flag-icon.flag-icon-ua
