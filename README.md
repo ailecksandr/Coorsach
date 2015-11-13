@@ -1,7 +1,7 @@
 # Solver
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Solver](https://raw.githubusercontent.com/ailecksandr/Coorsach/master/app/assets/images/favicon.png)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Example on Heroku.](https://protected-tundra-9177.herokuapp.com/)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Example on Heroku.](https://immense-mesa-3376.herokuapp.com/)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Playing with *twitter-bootstrap, js, form_tag, routing, modules, i18n*.
 
