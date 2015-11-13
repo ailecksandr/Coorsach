@@ -7,9 +7,9 @@
 
 ## Usage
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;That's demonstrative project that firstly was targeted to be a term project for my friend.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is the comparator for your formulas, that compare two formulas for equality. You may work with it like a default calculator or calculate formulas with parameters.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Before using parameters you must create params `.json` file that may be created at the "Create". After that enter formulas and correct filename in corresponding fields. Parameters without value equals 0 by default.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;That's demonstrative project that firstly was targeted to be a term project for my friend.\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is the comparator for your formulas, that compare two formulas for equality. You may work with it like a default calculator or calculate formulas with parameters.\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Before using parameters you must create params `.json` file that may be created at the "Create". After that enter formulas and correct filename in corresponding fields. Parameters without value equals 0 by default.\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;When you entered all data click "Accept". You'll receive a results with full map of current parameters in each formula or information about errors. Project supports internationalization.
 
 ## Features
