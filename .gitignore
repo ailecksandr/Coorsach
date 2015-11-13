@@ -16,7 +16,7 @@
 !/log/.keep
 /tmp
 .idea
-/Gemfile.lock
+
 
 lib/assets/modules/kek.rb
 /params-folder
